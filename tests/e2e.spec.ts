@@ -6,13 +6,18 @@ import { LeavePage } from "../pageobject/pages/LeavePage";
 
 
 
-test('login user, sidebar text assertions and then logout from the navigation menu dropdown',async({page})=>{
+test.beforeEach(async({page})=>{
     await page.goto('')
     expect(page.url()).toMatch(/auth/)
     const login = new LoginPage(page)
-    await login.userName.fill('Admin')
-    await login.password.fill('admin123')
+    //login
+    await login.userName.fill(process.env.USERNAME!) //TODO: add @type/nodes to bypass !
+    await login.password.fill(process.env.PASSWORD!) //TODO: add @type/nodes to bypass !
     await login.submit.click()
+})
+
+test('login user, sidebar text assertions and then logout from the navigation menu dropdown',async({page})=>{
+    
     expect(page.url()).toMatch(/dashboard/)
     const sidebar = new SideBar(page)
     await expect(sidebar.sideBarFullPanel).toBeVisible()    
@@ -41,13 +46,8 @@ test('login user, sidebar text assertions and then logout from the navigation me
     expect(page.url()).toMatch(/auth/)
 })
 
-test('user can goto leave, select leave type, select dates, add a comment, unsuccessful leave due to not having enough leave',async({page})=>{
-    await page.goto('')
-    expect(page.url()).toMatch(/auth/)
-    const login = new LoginPage(page)
-    await login.userName.fill('Admin')
-    await login.password.fill('admin123')
-    await login.submit.click()
+test.fixme('user can goto leave, select leave type, select dates, add a comment, unsuccessful leave due to not having enough leave',async({page})=>{
+    
     expect(page.url()).toMatch(/dashboard/)
     const sidebar = new SideBar(page)
     await sidebar.leaveComponent.click()
@@ -55,6 +55,7 @@ test('user can goto leave, select leave type, select dates, add a comment, unsuc
     const leavePage = new LeavePage(page)
     await leavePage.applyHeader.click()
     expect(page.url()).toMatch(/applyLeave/)
+    await page.pause()
     await expect(leavePage.applyLeaveFullView).toBeVisible()
     await expect(leavePage.applyLeaveHeading).toContainText('Apply Leave')
     await expect(leavePage.applyLeaveTypesStr).toContainText('Leave Type')
@@ -70,13 +71,9 @@ test('user can goto leave, select leave type, select dates, add a comment, unsuc
     await expect(leavePage.balanceInsufficient).toBeVisible()
 })
 
-test('resetting user leave request',async({page})=>{
-    await page.goto('')
-    expect(page.url()).toMatch(/auth/)
-    const login = new LoginPage(page)
-    await login.userName.fill('Admin')
-    await login.password.fill('admin123')
-    await login.submit.click()
+test.fixme('resetting user leave request',async({page})=>{
+
+
     expect(page.url()).toMatch(/dashboard/)
     const sidebar = new SideBar(page)
     await sidebar.leaveComponent.click()
@@ -86,5 +83,3 @@ test('resetting user leave request',async({page})=>{
     await leavePage.resetMyLeave()
 
 })
-
-// lots of testers using the same environment so it breaks really easily cos everyone has the same account

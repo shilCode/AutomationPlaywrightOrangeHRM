@@ -1,7 +1,6 @@
 import { Locator, Page } from "playwright";
 
 export class LoginPage{
-    public readonly page: Page;
     public readonly userName:Locator;
     public readonly password:Locator;
     public readonly submit:Locator;

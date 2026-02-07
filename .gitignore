@@ -3,3 +3,4 @@
 /playwright-report/
 /playwright/.cache/
 allure-results
+.env

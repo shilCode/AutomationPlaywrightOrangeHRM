@@ -1,8 +1,7 @@
 {
-  "name": "mangement-system-automated",
-  "version": "1.0.0",
-  "description": "https://opensource-demo.orangehrmlive.com/",
-  "main": "index.js",
+  "name": "management-system-automated-using-playwright",
+  "version": "1.0.1",
+  "description": "demo practice https://opensource-demo.orangehrmlive.com/",
   "scripts": {
     "test": "npx playwright test",
     "lint": "npx eslint ."
@@ -18,7 +17,9 @@
     "eslint-config-prettier": "^9.1.0",
     "globals": "^15.0.0",
     "prettier": "3.2.5",
-    "typescript-eslint": "^7.7.0"
+    "typescript-eslint": "^7.7.0",
+    "dotenv": "^17.2.4",
+    "path": "^0.12.7"
   },
   "dependencies": {
     "playwright": "^1.37.1",
