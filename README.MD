@@ -7,7 +7,9 @@
 
 ## **To run use code below:**
 
-```npm i && npm test && npm run test-pw```
+```sh
+npm i && npm test
+```
 
 ## E2E Flows
 
