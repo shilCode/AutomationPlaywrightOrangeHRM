@@ -9,6 +9,10 @@ dotenv.config({ path: path.resolve(__dirname, ".env"), override: false });
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
+
+if (process.env.CI && !process.env.ENV_STAGING_URL) {
+  console.error("❌ ERROR: ENV_STAGING_URL is not defined in GitHub Actions Variables!");
+}
 export default defineConfig({
   testDir: "./tests",
   fullyParallel: true,
@@ -19,7 +23,7 @@ export default defineConfig({
   use: {
     trace: "on-first-retry",
     headless: true,
-    baseURL: process.env.CI ? process.env.CI : process.env.ENV_STAGING_URL 
+    baseURL: process.env.ENV_STAGING_URL 
   },
 
   projects: [

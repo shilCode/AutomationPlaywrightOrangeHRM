@@ -20,7 +20,7 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
         env:
-          # CI: true
+          CI: true
           DEBUG: pw:api
           USERNAME: ${{vars.USERNAME}}
           PASSWORD: ${{secrets.PASSWORD}}
