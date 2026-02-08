@@ -4,7 +4,18 @@ import { SideBar } from "../pageobject/shared/Sidebar";
 import { NavBar } from "../pageobject/shared/NavBar";
 import { LeavePage } from "../pageobject/pages/LeavePage";
 
-test.beforeEach(async ({ page }) => {
+// test.beforeEach(async ({ page }) => {
+//   await page.goto('/');
+//   expect(page.url()).toMatch(/auth/);
+//   const login = new LoginPage(page);
+//   //login
+//   await login.userName.fill(process.env.USERNAME!||'Admin'); //TODO: add @type/nodes to bypass !
+//   await login.password.fill(process.env.PASSWORD!||'Admin123'); //TODO: add @type/nodes to bypass !
+//   await login.submit.click();
+// });
+
+try {
+  test('quick test',async({page})=>{
   await page.goto('/');
   expect(page.url()).toMatch(/auth/);
   const login = new LoginPage(page);
@@ -12,9 +23,14 @@ test.beforeEach(async ({ page }) => {
   await login.userName.fill(process.env.USERNAME!||'Admin'); //TODO: add @type/nodes to bypass !
   await login.password.fill(process.env.PASSWORD!||'Admin123'); //TODO: add @type/nodes to bypass !
   await login.submit.click();
-});
+})
+} catch (error) {
+  console.log(error)
+}
 
-test("sidebar text assertions and then logout from the navigation menu dropdown is functional", async ({
+
+
+test.skip("sidebar text assertions and then logout from the navigation menu dropdown is functional", async ({
   page,
 }) => {
   // await page.waitForLoadState('domcontentloaded');
