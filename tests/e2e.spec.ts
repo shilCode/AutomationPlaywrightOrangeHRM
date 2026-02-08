@@ -20,10 +20,10 @@ try {
   expect(page.url()).toMatch(/auth/);
   const login = new LoginPage(page);
   //login
-  await login.userName.fill(process.env.USERNAME!||'Admin'); //TODO: add @type/nodes to bypass !
-  await login.password.fill(process.env.PASSWORD!||'Admin123'); //TODO: add @type/nodes to bypass !
+  await login.userName.fill(process.env.USERNAME!); //TODO: add @type/nodes to bypass !
+  await login.password.fill(process.env.PASSWORD!); //TODO: add @type/nodes to bypass !
   await login.submit.click();
-  await console.log(page.innerHTML)
+  console.log(page.url());
 })
 } catch (error) {
   console.log(error)
