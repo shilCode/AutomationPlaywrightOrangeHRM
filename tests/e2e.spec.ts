@@ -23,6 +23,7 @@ try {
   await login.userName.fill(process.env.USERNAME!); //TODO: add @type/nodes to bypass !
   await login.password.fill(process.env.PASSWORD!); //TODO: add @type/nodes to bypass !
   await login.submit.click();
+  await page.waitForTimeout(5000)
   console.log(page.url());
 })
 } catch (error) {
