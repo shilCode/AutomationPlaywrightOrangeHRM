@@ -13,7 +13,7 @@ export class SideBar{
     public myInfoComponent:Locator
     public performanceComponent:Locator
     public directoryComponent:Locator
-    public maintenceComponent:Locator
+    public maintenanceComponent:Locator
     public buzzComponent:Locator
     public searchBar:Locator
     public dashboardComponent:Locator
@@ -31,7 +31,7 @@ export class SideBar{
         this.performanceComponent=this.sideBarFullPanel.locator('[href="/web/index.php/performance/viewPerformanceModule"]')
         this.dashboardComponent=this.sideBarFullPanel.getByRole('link', { name: 'Dashboard' })
         this.directoryComponent=this.sideBarFullPanel.locator('[href="/web/index.php/directory/viewDirectory"]')
-        this.maintenceComponent= this.sideBarFullPanel.locator('[href="/web/index.php/maintenance/viewMaintenanceModule"]')
+        this.maintenanceComponent= this.sideBarFullPanel.locator('[href="/web/index.php/maintenance/viewMaintenanceModule"]')
         this.buzzComponent=this.sideBarFullPanel.locator('[href="/web/index.php/buzz/viewBuzz"]')
         this.searchBar=this.sideBarFullPanel.locator('[placeholder="Search"]')
         this.claimComponent=this.sideBarFullPanel.getByRole('link', { name: 'Claim' })

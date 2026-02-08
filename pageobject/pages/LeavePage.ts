@@ -8,7 +8,7 @@ export class LeavePage{
     public readonly applyHeader:Locator
     public readonly applyLeaveFullView:Locator
     public readonly applyLeaveHeading:Locator
-    public readonly applyLeavebtn:Locator
+    public readonly applyLeaveBtn:Locator
     public readonly applyLeaveTypesStr:Locator
     public readonly applyLeaveTypesDropDown:Locator
     public readonly applyLeaveTypesDropDownOption:Locator
@@ -26,10 +26,10 @@ export class LeavePage{
         this.applyHeader =this.header.locator('li').filter({ hasText: 'Apply' })
         this.applyLeaveFullView=page.locator('[class="orangehrm-card-container"]')
         this.applyLeaveHeading=this.applyLeaveFullView.getByRole('heading', { name: 'Apply Leave' })
-        this.applyLeavebtn=this.applyLeaveFullView.getByRole('button', { name: 'Apply' })
+        this.applyLeaveBtn=this.applyLeaveFullView.getByRole('button', { name: 'Apply' })
         this.applyLeaveTypesStr=this.applyLeaveFullView.locator('div').filter({ hasText: /^Leave Type$/ })
         this.applyLeaveTypesDropDown=this.applyLeaveFullView.locator('div').filter({ hasText: /^-- Select --$/ }).nth(2)
-        this.applyLeaveTypesDropDownOption=this.applyLeaveFullView.getByRole('option', { name: 'CAN - FMLA' })
+        this.applyLeaveTypesDropDownOption=this.applyLeaveFullView.getByRole('option', { name: 'US - Personal' })
         this.applyLeaveCalenderStartDate=this.applyLeaveFullView.getByPlaceholder('yyyy-dd-mm').first()
         this.applyLeaveCalenderEndDate=this.applyLeaveFullView.getByPlaceholder('yyyy-dd-mm').last()
         this.applyLeaveCalenderView=page.locator('[class*="oxd-date-input-calendar"]')

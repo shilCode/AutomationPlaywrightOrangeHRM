@@ -18,7 +18,7 @@ export default defineConfig({
   use: {
     trace: 'on-first-retry',
     headless:true,
-    baseURL:'https://opensource-demo.orangehrmlive.com/'
+    baseURL: process.env.ENV_STAGING
   },
 
   projects: [

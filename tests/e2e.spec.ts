@@ -16,7 +16,7 @@ test.beforeEach(async({page})=>{
     await login.submit.click()
 })
 
-test('login user, sidebar text assertions and then logout from the navigation menu dropdown',async({page})=>{
+test('sidebar text assertions and then logout from the navigation menu dropdown is functional',async({page})=>{
     
     expect(page.url()).toMatch(/dashboard/)
     const sidebar = new SideBar(page)
@@ -31,7 +31,7 @@ test('login user, sidebar text assertions and then logout from the navigation me
     await expect(sidebar.performanceComponent).toContainText('Performance')
     await expect(sidebar.dashboardComponent).toContainText('Dashboard')
     await expect(sidebar.directoryComponent).toContainText('Directory')
-    await expect(sidebar.maintenceComponent).toContainText('Maintenance')
+    await expect(sidebar.maintenanceComponent).toContainText('Maintenance')
     await expect(sidebar.claimComponent).toContainText('Claim')
     await expect(sidebar.buzzComponent).toContainText('Buzz')
     
@@ -46,7 +46,7 @@ test('login user, sidebar text assertions and then logout from the navigation me
     expect(page.url()).toMatch(/auth/)
 })
 
-test.fixme('user can goto leave, select leave type, select dates, add a comment, unsuccessful leave due to not having enough leave',async({page})=>{
+test('user can goto leave, select leave type, select dates, add a comment, unsuccessful leave due to not having enough leave',async({page})=>{
     
     expect(page.url()).toMatch(/dashboard/)
     const sidebar = new SideBar(page)
@@ -55,7 +55,6 @@ test.fixme('user can goto leave, select leave type, select dates, add a comment,
     const leavePage = new LeavePage(page)
     await leavePage.applyHeader.click()
     expect(page.url()).toMatch(/applyLeave/)
-    await page.pause()
     await expect(leavePage.applyLeaveFullView).toBeVisible()
     await expect(leavePage.applyLeaveHeading).toContainText('Apply Leave')
     await expect(leavePage.applyLeaveTypesStr).toContainText('Leave Type')
@@ -67,12 +66,11 @@ test.fixme('user can goto leave, select leave type, select dates, add a comment,
     await leavePage.applyLeaveCalenderStartDate.fill('2025-01-01')
     await leavePage.applyLeaveCalenderEndDate.click()
     await leavePage.applyLeaveCalenderEndDate.fill('2025-31-12')
-    await leavePage.applyLeavebtn.click()
+    await leavePage.applyLeaveBtn.click()
     await expect(leavePage.balanceInsufficient).toBeVisible()
 })
 
 test.fixme('resetting user leave request',async({page})=>{
-
 
     expect(page.url()).toMatch(/dashboard/)
     const sidebar = new SideBar(page)
