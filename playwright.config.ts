@@ -1,33 +1,29 @@
 // @ts-check
 import { defineConfig, devices } from "@playwright/test";
-import dotenv from 'dotenv'
-import path from 'path'
+import dotenv from "dotenv";
+import path from "path";
 
-
-dotenv.config({path:path.resolve(__dirname,".env")})
+dotenv.config({ path: path.resolve(__dirname, ".env") });
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: "./tests",
   fullyParallel: true,
-  reporter: process.env.CI ? 'dot' : 'list',
-  retries:0,
+  reporter: process.env.CI ? "dot" : "list",
+  retries: 0,
   workers: process.env.CI ? undefined : undefined,
-  
+
   use: {
-    trace: 'on-first-retry',
-    headless:true,
-    baseURL: process.env.ENV_STAGING
+    trace: "on-first-retry",
+    headless: true,
+    baseURL: process.env.ENV_STAGING,
   },
 
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome']},
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
     },
-
   ],
-
 });
-

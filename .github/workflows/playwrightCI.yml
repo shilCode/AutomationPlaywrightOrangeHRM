@@ -1,14 +1,14 @@
 name: MANAGEMENT-SYSTEM-AUTOMATED
 on:
-    push:
-      branches: [ main, master ]
-    pull_request:
-      branches: [ main, master ]
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
 jobs:
-    test:
-      timeout-minutes: 60
-      runs-on: ubuntu-latest
-      steps:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -25,4 +25,3 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-  
