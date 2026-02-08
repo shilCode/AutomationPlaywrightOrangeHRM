@@ -22,8 +22,8 @@ jobs:
         env:
           CI: true
           DEBUG: pw:api
-          USERNAME: ${{ vars.USERNAME }}
-          PASSWORD: ${{vars.PASSWORD}}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{secrets.PASSWORD}}
           ENV_STAGING_URL: ${{secrets.ENV_STAGING_URL}}
       - uses: actions/upload-artifact@v4
         if: always()
