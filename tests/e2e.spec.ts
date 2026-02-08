@@ -18,6 +18,7 @@ test("sidebar text assertions and then logout from the navigation menu dropdown 
   page,
 }) => {
   await page.waitForLoadState('domcontentloaded');
+  await page.waitForTimeout(3000);
   expect(page.url()).toMatch(/dashboard/);
   const sidebar = new SideBar(page);
   await expect(sidebar.sideBarFullPanel).toBeVisible();
