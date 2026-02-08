@@ -17,6 +17,7 @@ test.beforeEach(async ({ page }) => {
 test("sidebar text assertions and then logout from the navigation menu dropdown is functional", async ({
   page,
 }) => {
+  await page.waitForLoadState('domcontentloaded');
   expect(page.url()).toMatch(/dashboard/);
   const sidebar = new SideBar(page);
   await expect(sidebar.sideBarFullPanel).toBeVisible();
