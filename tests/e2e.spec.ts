@@ -4,18 +4,7 @@ import { SideBar } from "../pageobject/shared/Sidebar";
 import { NavBar } from "../pageobject/shared/NavBar";
 import { LeavePage } from "../pageobject/pages/LeavePage";
 
-// test.beforeEach(async ({ page }) => {
-//   await page.goto('/');
-//   expect(page.url()).toMatch(/auth/);
-//   const login = new LoginPage(page);
-//   //login
-//   await login.userName.fill(process.env.USERNAME!||'Admin'); //TODO: add @type/nodes to bypass !
-//   await login.password.fill(process.env.PASSWORD!||'Admin123'); //TODO: add @type/nodes to bypass !
-//   await login.submit.click();
-// });
-
-try {
-  test('quick test',async({page})=>{
+test.beforeEach(async ({ page }) => {
   await page.goto('/');
   expect(page.url()).toMatch(/auth/);
   const login = new LoginPage(page);
@@ -23,21 +12,16 @@ try {
   await login.userName.fill(process.env.USERNAME!); //TODO: add @type/nodes to bypass !
   await login.password.fill(process.env.PASSWORD!); //TODO: add @type/nodes to bypass !
   await login.submit.click();
-  await page.waitForTimeout(5000)
-  console.log(page.url());
-})
-} catch (error) {
-  console.log(error)
-}
+});
 
 
 
-test.skip("sidebar text assertions and then logout from the navigation menu dropdown is functional", async ({
+
+test("sidebar text assertions and then logout from the navigation menu dropdown is functional", async ({
   page,
 }) => {
-  // await page.waitForLoadState('domcontentloaded');
-  // await page.waitForTimeout(3000);
-  // expect(page.url()).toMatch(/dashboard/);
+
+  expect(page.url()).toMatch(/dashboard/);
   const sidebar = new SideBar(page);
   await expect(sidebar.sideBarFullPanel).toBeVisible();
   //search
