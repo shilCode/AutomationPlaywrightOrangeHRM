@@ -3,16 +3,8 @@ import { defineConfig, devices } from "@playwright/test";
 import dotenv from "dotenv";
 import path from "path";
 
-// Load .env file if it exists (for local development)
-// In CI/CD, environment variables are set by the workflow/container
 dotenv.config({ path: path.resolve(__dirname, ".env"), override: false });
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
 
-if (process.env.CI && !process.env.ENV_STAGING_URL) {
-  console.error("❌ ERROR: ENV_STAGING_URL is not defined in GitHub Actions Variables!");
-}
 export default defineConfig({
   testDir: "./tests",
   fullyParallel: true,
