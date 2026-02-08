@@ -22,9 +22,9 @@ jobs:
         env:
           CI: true
           DEBUG: pw:api
-          USERNAME: 'Admin'
-          PASSWORD: 'admin123'
-          ENV_STAGING_URL: 'https://opensource-demo.orangehrmlive.com/'
+          USERNAME: ${{vars.USERNAME}}
+          PASSWORD: ${{secrets.PASSWORD}}
+          ENV_STAGING_URL: ${{vars.ENV_STAGING_URL}}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
