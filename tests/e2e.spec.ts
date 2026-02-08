@@ -5,7 +5,7 @@ import { NavBar } from "../pageobject/shared/NavBar";
 import { LeavePage } from "../pageobject/pages/LeavePage";
 
 test.beforeEach(async ({ page }) => {
-  await page.goto(process.env.ENV_STAGING_URL!);
+  await page.goto(process.env.ENV_STAGING_URL);
   expect(page.url()).toMatch(/auth/);
   const login = new LoginPage(page);
   //login
