@@ -14,12 +14,12 @@ export default defineConfig({
   fullyParallel: true,
   reporter: process.env.CI ? "dot" : "list",
   retries: 0,
-  workers: process.env.CI ? undefined : undefined,
+  workers: process.env.CI ? 2 : 1,
 
   use: {
     trace: "on-first-retry",
     headless: true,
-    baseURL: process.env.ENV_STAGING,
+    baseURL: process.env.ENV_STAGING_URL,
   },
 
   projects: [
