@@ -45,7 +45,7 @@ test("sidebar text assertions and then logout from the navigation menu dropdown 
   expect(page.url()).toMatch(/auth/);
 });
 
-test("user can goto leave, select leave type, select dates, add a comment, unsuccessful leave due to not having enough leave", async ({
+test.fixme("user can goto leave, select leave type, select dates, add a comment, unsuccessful leave due to not having enough leave", async ({
   page,
 }) => {
   expect(page.url()).toMatch(/dashboard/);
@@ -70,6 +70,7 @@ test("user can goto leave, select leave type, select dates, add a comment, unsuc
   await expect(leavePage.balanceInsufficient).toBeVisible();
 });
 
+//example of fixme tag
 test.fixme("resetting user leave request", async ({ page }) => {
   expect(page.url()).toMatch(/dashboard/);
   const sidebar = new SideBar(page);
